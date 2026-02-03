@@ -31,9 +31,10 @@
 						<nav>
 							<ul>
 								<li><a href="#summary"><b>Summary</b></a></li>
-								<li><a href="#about"><b>Education</b></a></li>
+								<li><a href="#education"><b>Education</b></a></li>
 								<li><a href="#skills"><b>Tools and Utilities</b></a></li>
-								<li><a href="#work"><b>Work</b></a></li>
+								<li><a href="#projects"><b>Projects</b></a></li>
+								<li><a href="#experience"><b>Experience</b></a></li>
 								<li><a href="#contact"><b>Contact</b></a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
@@ -46,7 +47,7 @@
 							<article id="summary">
 								
 								<h2 class="major">Summary</h2>
-								<span class="image main"><img src="images/about-pressure-crop.jpg" alt="" /></span>
+								<span class="image main"><img src="project-assets/ch4-resize.gif" alt="" /></span>
 								<div class="about-content">
 								<p>Tejas is a mechanical engineering graduate with a master's degree in aerospace engineering, specializing in propulsion. His work is primarily focused on numerical modeling of fluid mechanics and combustion, with a strong interest in connecting simulations to physical reality.</p>
 								<p>He works extensively with CFD across RANS and LES, with exposure to DNS, and places particular emphasis on verification, validation, and model fidelity rather than black-box simulation. Alongside this, he has hands-on experimental experience in laboratory-scale combustion and flow diagnostics, giving him a practical understanding of measurement uncertainty and data quality.</p>
@@ -54,13 +55,392 @@
 						 </div>
 							</article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
-							</article>
+						<!-- Projects -->
+						<article id="projects">
+							<h2 class="major">Projects</h2>
+							
+							<div class="projects-container">
+								<!-- Project List (Left Column) -->
+								<div class="projects-list">
+									<div class="project-item active" data-project="1">
+										<h4>Numerical Methods for PDEs</h4>
+										<span class="project-tag">PDEs · Numerical Methods · Python</span>
+									</div>
+									<div class="project-item" data-project="2">
+										<h4>Turbulent Combustion Simulation with OpenFOAM</h4>
+										<span class="project-tag">OpenFOAM · ParaView · Linux · Combustion</span>
+									</div>
+									<div class="project-item" data-project="3">
+										<h4>Experimental & Numerical Study of Supersonic Wing Profiles</h4>
+										<span class="project-tag">Experimental Diagnostics · Model Verification · Gas Dynamics</span>
+									</div>
+									<div class="project-item" data-project="4">
+										<h4>Thermochemical Modeling with Cantera and Python</h4>
+										<span class="project-tag">Thermochemistry · Combustion · Python · Cantera</span>
+									</div>
+									<div class="project-item" data-project="5">
+										<h4>Analysis of a Convergent-Divergent Nozzle at different flow conditions</h4>
+										<span class="project-tag">Ansys Fluent · Numerical Methods</span>
+									</div>
+								</div>
+
+								<!-- Project Detail Panel (Right Column) -->
+
+								<div class="projects-detail">
+									<!-- ==========================================================Project 1 =================================================================-->
+									<div class="project-detail active" data-project="1">
+										<h3><h3>Numerical Finite Volume Analysis of Incompressible Flows</h3></h3>
+<p>
+This project focuses on the numerical solution of canonical partial differential equations 
+relevant to fluid mechanics and heat transfer. Finite Difference and Finite Volume methods 
+were implemented from scratch in <strong>Python</strong> and <strong>FORTRAN</strong> to study 
+stability, convergence, and regime-dependent flow behavior.
+</p>
+<h4>Governing Equations & Numerical Methods</h4>
+<ul>
+	<li><strong>1D Heat Diffusion Equation</strong> -  Finite Difference Method (explicit scheme)</li>
+	<li><strong>Linear Advection Equation</strong> - Finite Volume Method (upwind discretization)</li>
+	<li><strong>1D Burgers' Equation</strong> - Finite Volume Method (nonlinear convection)</li>
+</ul>
+										<h4>Numerical Analysis</h4>
+<ul>
+	<li>Grid convergence and time-step sensitivity studies performed</li>
+	<li>Stability behavior analyzed using CFL-based constraints</li>
+	<li>Results validated against analytical solutions and benchmark cases</li>
+	<li>Comparison of diffusive vs convective dominance across regimes</li>
+</ul>
+										<h4>Numerical Results</h4>
+
+<figure class="project-figure">
+    <img src="project-assets/heat_diffusion_curve.gif"
+         class="project-gif"
+         alt="1D Heat Diffusion - FDM">
+    <figcaption>
+        Transient temperature evolution for the 1D heat diffusion equation solved
+        using an explicit finite difference scheme.
+    </figcaption>
+</figure>
+
+<figure class="project-figure">
+    <img src="project-assets/advection.gif"
+         class="project-gif"
+         alt="Linear Advection - Finite Volume">
+    <figcaption>
+        Finite volume simulation of linear advection highlighting numerical diffusion and wave propagation.
+    </figcaption>
+</figure>
+
+<figure class="project-figure">
+    <img src="project-assets/burgers.gif"
+         class="project-gif"
+         alt="Burgers Equation - Finite Volume">
+    <figcaption>
+       Nonlinear shock formation and propagation captured in the 1D Burgers' equation.
+    </figcaption>
+</figure>
+									</div>
+
+									<!-- ====================================================Project 2========================================================== -->
+									<div class="project-detail" data-project="2">
+										<h3>Turbulent Combustion Simulation with OpenFOAM</h3>
+<p>
+This project investigates turbulent premixed and non-premixed combustion using 
+OpenFOAM-based reacting flow solvers. Canonical counterflow flames and combustor-like 
+configurations were simulated to analyze flame stability, heat release, and pollutant 
+formation under varying operating conditions.
+</p>										<h4>Physical Models & Solvers</h4>
+<ul>
+	<li><strong>Premixed combustion</strong> - <code>XiFoam</code> (flame wrinkling model)</li>
+	<li><strong>Non-premixed combustion</strong> - <code>reactingFoam</code></li>
+	<li>Turbulence-chemistry interaction modeling</li>
+	<li>Thermal transport and species evolution</li>
+</ul>
+										<h4>Numerical Setup & Workflow</h4>
+<ul>
+	<li>Automated mesh generation using <strong>Gmsh</strong></li>
+	<li>Bash-based case setup and execution pipelines</li>
+	<li>Improved physical model fidelity by 18-22%</li>
+	<li>Reduced simulation setup time by ~40%</li>
+</ul>
+<h4>Simulation Results</h4>
+<p>
+All results shown correspond only to the Large Eddy Simulations (LES) performed using
+<code>reactingFoam</code> and post-processed in ParaView.
+</p>
+<figure class="project-figure">
+	<img src="/project-assets/openfoam/LES/q.gif"
+	     class="project-gif"
+	     alt="Non-premixed turbulent flame simulation">
+	<figcaption>
+	Large Eddy Simulation of a turbulent reacting flow using <code>reactingFoam</code>,
+capturing instantaneous flame structure, wrinkling, and turbulent-flame interaction.
+	</figcaption>
+</figure>
+
+<figure class="project-figure">
+	<img src="/project-assets/openfoam/LES/co2.gif"
+	     class="project-gif"
+	     alt="Non-premixed CO2">
+	<figcaption>
+Spatial distribution of CO<sub>2</sub> mass fraction from LES,
+highlighting major combustion product formation regions and mixing effects.
+	</figcaption>
+</figure>
+
+<figure class="project-figure">
+	<img src="/project-assets/openfoam/LES/ch4.gif"
+	     class="project-gif"
+	     alt="CH4 fuel field visualization">
+	<figcaption>
+CH<sub>4</sub> fuel mass fraction field from LES,
+showing fuel consumption, reaction zones, and turbulent transport.
+	</figcaption>
+</figure>
+									</div>
+
+									<!-- ========================================================Project 3=============================================================================================================== -->
+									<div class="project-detail" data-project="3">
+										<h3>Experimental Study of Supersonic Wing Profiles</h3>
+										<p>
+This project presents an experimental investigation of supersonic flow over diamond
+and concave wing profiles conducted in a wind tunnel at Mach numbers between 1.5 and 2. 
+The study focuses on shock formation, shock-boundary layer interaction, and aerodynamic
+performance, complemented by numerical simulations for validation.
+</p>
+										<h4>Tools & Methods:</h4>
+										<ul>
+											<li>STAR-CCM+</li>
+											<li>Inviscid, Spalart-Allmaras models</li>
+										</ul>
+										<h4>Experimental Setup</h4>
+<ul>
+	<li>Supersonic wind tunnel testing at Mach 1.5-2.0</li>
+	<li>Diamond and concave wing geometries</li>
+	<li>Schlieren imaging for shock and flow visualization</li>
+	<li>Force and pressure measurements for aerodynamic assessment</li>
+</ul>
+<h4>Experimental Results</h4>
+
+<figure class="project-figure">
+	<img src="/project-assets/starccm/combined.jpg"
+	     class="project-gif"
+	     alt="Supersonic wind tunnel experimental setup">
+	<figcaption>
+	Supersonic wind tunnel experimental setup used for testing diamond and concave wing
+	profiles, including Schlieren imaging configuration for shock visualization.
+	</figcaption>
+</figure>
+
+<p>
+Experimental observations were complemented with numerical simulations to interpret
+shock structures and aerodynamic trends.
+</p>
+
+<h4>Numerical Validation - Diamond Profile</h4>
+
+<figure class="project-figure">
+	<img src="/project-assets/starccm/diamond/combined_diamond.jpg"
+	     class="project-gif"
+	     alt="Mach number contours for diamond profile: inviscid vs Spalart-Allmaras">
+	<figcaption>
+	Mach number contours for the diamond wing profile comparing inviscid(first image) and
+	Spalart-Allmaras viscous(second image) simulations. Viscous effects lead to shock smearing
+	and altered shock-boundary layer interaction.
+	</figcaption>
+</figure>
+
+<h4>Numerical Validation - Concave Profile</h4>
+
+<figure class="project-figure">
+	<img src="/project-assets/starccm/concave/combined_concave.jpg"
+	     class="project-gif"
+	     alt="Mach number contours for concave profile: inviscid vs Spalart-Allmaras">
+	<figcaption>
+	Mach number contours for the concave wing profile comparing inviscid(first image) and
+	Spalart-Allmaras viscous(second image) simulations, highlighting shock focusing,
+	separation behavior, and enhanced viscous losses.
+	</figcaption>
+</figure>
+
+
+									</div>
+
+									<!-- =============================================== Project 4 ========================================================-->
+									<div class="project-detail" data-project="4">
+										<h3>Thermochemical Modeling with Cantera and Python</h3>
+										<p>
+This project focuses on zero-dimensional thermochemical modeling of gaseous combustion
+systems using Cantera and Python. Constant-pressure and constant-volume reactors were
+simulated to study ignition behavior, species evolution, and thermodynamic property
+variation for CH<sub>4</sub>- air and H<sub>2</sub>- O<sub>2</sub> mixtures under varying
+pressure and equivalence ratio conditions.
+</p>
+										<h4>Models & Methodology</h4>
+<ul>
+	<li>Zero-dimensional constant-pressure and constant-volume reactors</li>
+	<li>Detailed chemical kinetics:
+		<ul>
+			<li>GRI-Mech 3.0 (CH<sub>4</sub>- air)</li>
+			<li>H<sub>2</sub>- O<sub>2</sub> detailed kinetics</li>
+		</ul>
+	</li>
+	<li>Transient species and temperature tracking</li>
+	<li>Thermodynamic property extraction from Cantera mechanisms</li>
+</ul>
+										<h4>Results & Analysis</h4>
+<p class="results-meta">
+	All simulations and post-processing were performed using <strong>Cantera</strong>
+	and <strong>Python</strong>, with visualization using <strong>Matplotlib</strong>.
+</p>
+<figure class="project-figure">
+	<img src="/project-assets/cantera/flame-temperature-combined.jpg"
+	     class="project-gif"
+	     alt="Flame temperature vs pressure for 5-species and 53-species mechanisms">
+	<figcaption>
+	Adiabatic flame temperature variation with pressure for CH<sub>4</sub>- air combustion,
+	comparing reduced (5-species) and detailed (53-species) chemical mechanisms. Increased
+	mechanism fidelity influences predicted thermal behavior at elevated pressures.
+	</figcaption>
+</figure>
+<figure class="project-figure">
+	<img src="/project-assets/cantera/enthalpy.png"
+	     class="project-gif"
+	     alt="Thermodynamic properties vs equilibrium temperature">
+	<figcaption>
+	Variation of thermodynamic properties (enthalpy, specific enthalpy) of burnt gases
+	as a function of equilibrium temperature, illustrating the coupled influence of
+	temperature and pressure on post-combustion gas properties.
+	</figcaption>
+</figure>
+<figure class="project-figure">
+	<img src="/project-assets/cantera/oh.png"
+	     class="project-gif"
+	     alt="OH molar fraction vs pressure">
+	<figcaption>
+	Molar fraction of OH radical as a function of pressure, highlighting pressure-dependent
+	chemical kinetics and radical pool sensitivity in combustion reactions.
+	</figcaption>
+</figure>
+<figure class="project-figure">
+	<img src="/project-assets/cantera/h2o2.png"
+	     class="project-gif"
+	     alt="Flame temperature vs equivalence ratio for H2-O2">
+	<figcaption>
+	Influence of equivalence ratio on adiabatic flame temperature for an
+	H<sub>2</sub>- O<sub>2</sub> mixture, demonstrating mixture sensitivity and its impact
+	on the thermodynamic properties of burnt gases.
+	</figcaption>
+</figure>
+<h4>Key Outcomes</h4>
+<ul>
+	<li>Quantified pressure and equivalence ratio effects on flame temperature</li>
+	<li>Demonstrated the impact of chemical mechanism complexity on predictions</li>
+	<li>Analyzed thermodynamic property variation of burnt gases</li>
+	<li>Developed strong intuition for combustion chemistry and ignition behavior</li>
+</ul>
+									</div>
+								</div>
+							</div>
+						</article>
+						<!-- Experience -->
+<article id="experience">
+    <h2 class="major">Experience</h2>
+    <div class="experience-container">
+
+        <!-- Experience 1 
+        <div class="experience-item" data-experience="1">
+            <div class="experience-header">
+                <img src="work-logos/uni-stutt" alt="University of Stuttgart" class="experience-logo">
+                <div class="experience-info">
+                    <h4>Doctoral Researcher</h4>
+                    <p class="experience-company">University of Stuttgart</p>
+                    <p class="experience-dates">Present</p>
+                </div>
+            </div>
+            <p class="experience-summary">
+                As a Doctoral Researcher in the MSCA program, I focus on advanced numerical modeling of combustion processes, integrating simulations with experimental validation.
+            </p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+        <div class="experience-detail" data-experience="1">
+            <p>
+                As a Doctoral Researcher in the MSCA program, I focus on advanced numerical modeling of combustion processes. My work involves developing and validating CFD models for turbulent reacting flows, with an emphasis on Large Eddy Simulation (LES) and Direct Numerical Simulation (DNS). I collaborate on interdisciplinary projects integrating experimental diagnostics with simulations to enhance predictive capabilities in propulsion systems.
+            </p>
+            <h4>Key Responsibilities</h4>
+            <ul>
+                <li>Developing custom solvers in OpenFOAM for reacting flows</li>
+                <li>Performing high-fidelity simulations on HPC clusters</li>
+                <li>Analyzing turbulence-chemistry interactions</li>
+                <li>Publishing research in peer-reviewed journals</li>
+            </ul>
+            <h4>Achievements</h4>
+            <ul>
+                <li>Improved model accuracy by 20% through validation against experimental data</li>
+                <li>Led a team project on supersonic combustion modeling</li>
+            </ul>
+        </div>-->
+
+        <!-- Experience 2 -->
+        <div class="experience-item" data-experience="2">
+            <div class="experience-header">
+                <img src="work-logos/Sorbonne-University.webp" alt="Sorbonne Université" class="experience-logo">
+                <div class="experience-info">
+                    <h4>Research Intern - Master's Thesis</h4>
+                    <p class="experience-company">Sorbonne Université</p>
+                    <p class="experience-dates">April 2025 - September 2025</p>
+                </div>
+            </div>
+            <p class="experience-summary">
+                During my M.Sc. program in France, I interned at <i>Institut Jean Le Rond d'Alembert</i> within Sorbonne Université in Paris titled <b>"Instability Analysis of Helical Vortices in Turbine Wakes"</b>
+            </p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+        <div class="experience-detail" data-experience="2">
+						<span class="image main">
+				<!-- Replace the existing img tag in the experience-detail for data-experience="2" -->
+<span class="image main">
+    <img src="/project-assets/leweke-helical-vortices.avif"
+         alt="Helical vortex instability in turbine wake"
+         class="experience-banner" />
+</span>
+			<p>
+This research internship focuses on the numerical and theoretical analysis of helical
+vortex instabilities in turbine wake flows. The work combines high-fidelity simulations,
+linear stability theory, and high-performance computing to identify dominant instability
+mechanisms and characterize their dependence on flow and geometric parameters.
+</p>
+<h4>Numerical Methods & Modeling</h4>
+<ul>
+	<li>Development and optimization of in-house solvers (<strong>HELIX</strong> / <strong>HELIX-LIN</strong>)</li>
+	<li>Baseflow generation and linearization of the Navier-Stokes equations</li>
+	<li>Direct Numerical Simulations (DNS) and linear stability analysis of helical vortices</li>
+	<li>Identification of dominant instability modes and dispersion relations</li>
+</ul>
+<h4>High-Performance Computing & Optimization</h4>
+<ul>
+	<li>FFT-based solver optimization and parallelization, reducing baseflow computation time by <strong>22%</strong></li>
+	<li>Design and execution of scalable HPC workflows for large parametric studies</li>
+	<li>Systematic sweeps over vortex pitch, core radius, and axial velocity</li>
+	<li>Convergence checks and mesh refinement studies to ensure numerical robustness</li>
+</ul>
+<h4>Post-Processing & Reproducibility</h4>
+<ul>
+	<li>Automated post-processing pipelines using <strong>Python</strong> and <strong>MATLAB</strong></li>
+	<li>Mode extraction and growth-rate analysis</li>
+	<li>Construction of dispersion curves and parameter sensitivity maps</li>
+	<li>Emphasis on reproducible, scalable, and research-grade workflows</li>
+</ul>
+<h4>Research Impact</h4>
+<ul>
+	<li>Improved computational efficiency of in-house instability solvers</li>
+	<li>Characterized instability mechanisms governing turbine wake dynamics</li>
+	<li>Bridged high-fidelity simulations with linear stability theory</li>
+	<li>Strengthened expertise in vortex dynamics, flow instabilities, and HPC-based research</li>
+</ul>
+
+        
+    </div>
+</article>
 							<!-- Skills -->
 							<article id="skills">
 								<h2 class="major">Tools and Utilities</h2>
@@ -135,13 +515,13 @@
 								</ul>
 							</article>
 						<!-- About -->
-							<article id="about">
+							<article id="education">
 						 <h3>Education</h3>
 						<div class="education-list">
 						 <div class="education-item">
 							<img src="work-logos/uni-stutt" alt="University 2" class="education-logo">
 							<div class="education-info">
-								<h4>PhD student</h4>
+								<h4>Doctoral Researcher</h4>
 								<p class="uni-name">University of Stuttgart</p>
 								<p class="education-dates">Present</p>
 							</div>
@@ -454,6 +834,56 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		
+		<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const projectItems = document.querySelectorAll('.project-item');
+        const projectDetails = document.querySelectorAll('.project-detail');
 
+        projectItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+
+                // Remove active class from all items and details
+                projectItems.forEach(i => i.classList.remove('active'));
+                projectDetails.forEach(d => d.classList.remove('active'));
+
+                // Add active class to clicked item and corresponding detail
+                this.classList.add('active');
+                document.querySelector(`.project-detail[data-project="${projectId}"]`).classList.add('active');
+
+                // Scroll to top of detail panel on mobile
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.projects-detail').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const experienceItems = document.querySelectorAll('.experience-item');
+    const experienceDetails = document.querySelectorAll('.experience-detail');
+
+    experienceItems.forEach(item => {
+    const btn = item.querySelector('.read-more-btn');
+    btn.addEventListener('click', function() {
+        const experienceId = item.getAttribute('data-experience');
+        const detail = document.querySelector(`.experience-detail[data-experience="${experienceId}"]`);
+        
+        // Toggle visibility and active class
+        if (detail.style.display === 'none' || detail.style.display === '') {
+            detail.style.display = 'block';
+            btn.textContent = 'Read Less';
+            item.classList.add('active');
+        } else {
+            detail.style.display = 'none';
+            btn.textContent = 'Read More';
+            item.classList.remove('active');
+        }
+    });
+});
+});
+</script>
 	</body>
 </html>

@@ -121,18 +121,10 @@ input, select, textarea {
 /* Type */
 
 	html {
-		font-size: 16pt;
+		font-size: 14pt;
 	}
 
 		@media screen and (max-width: 1680px) {
-
-			html {
-				font-size: 12pt;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
 
 			html {
 				font-size: 11pt;
@@ -140,10 +132,18 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 360px) {
+		@media screen and (max-width: 736px) {
 
 			html {
 				font-size: 10pt;
+			}
+
+		}
+
+		@media screen and (max-width: 360px) {
+
+			html {
+				font-size: 9pt;
 			}
 
 		}
@@ -155,6 +155,11 @@ input, select, textarea {
 		font-size: 1rem;
 		line-height: 1.65;
 	}
+	* {
+    letter-spacing: -0.02em !important;
+    word-spacing: 0.12em !important;
+}
+
 
 	a {
 		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
@@ -188,7 +193,7 @@ input, select, textarea {
 		font-weight: 600;
 		line-height: 1.5;
 		margin: 0 0 1rem 0;
-		text-transform: uppercase;
+		text-transform: none;
 		letter-spacing: 0.2rem;
 	}
 
@@ -1418,7 +1423,7 @@ input, select, textarea {
 				-webkit-transition-delay: 0.25s;
 				-ms-transition-delay: 0.25s;
 				transition-delay: 0.25s;
-				padding: 3rem 2rem;
+				padding: 2rem 2rem;
 				max-height: 40rem;
 				overflow: hidden;
 			}
@@ -1457,7 +1462,7 @@ input, select, textarea {
 
 				#header nav ul li a {
 					display: block;
-					min-width: 7.5rem;
+					min-width: 10rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
 					padding: 0 1.25rem 0 1.45rem;
@@ -1641,13 +1646,165 @@ input, select, textarea {
 			-webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
 			-ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
 			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
-			padding: 4.5rem 2.5rem 1.5rem 2.5rem ;
+			padding: 2.5rem 2.5rem 1.5rem 2.5rem;
 			position: relative;
-			width: 40rem;
+			width: 90rem;
 			max-width: 100%;
 			background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 4px;
 			opacity: 0;
+		}
+
+/* Experience */
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.experience-item {
+    border: 1px solid #dddddddf;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f914;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.experience-item:hover {
+    background-color: #e9ecef22;
+    border-color: #c3c3c359;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-item.active {
+    background-color: #e3f2fd27;
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.experience-logo {
+    width: 60px; /* Reduced from 60px to make logos smaller */
+    height: 60px; /* Reduced from 60px to make logos smaller */
+    object-fit: contain;
+}
+
+/* Update the experience-info styles for better spacing */
+
+.experience-info {
+    flex: 1;
+    padding-left: 10px; /* Adds space from the logo to prevent closeness to left margin */
+}
+
+.experience-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+
+.experience-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #ffffffa2;
+}
+.experience-summary {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.read-more-btn {
+    background: #007bff22;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background: #0057b390;
+}
+
+/* Update the experience-detail styles to remove the nested box */
+
+.experience-detail {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee5b;
+    /* Remove background-color and border-radius to eliminate the nested box */
+    /* background-color: #ffffff1d; */
+    border-radius: 10px;
+    padding: 10px; /* Reduce padding slightly for better spacing */
+}
+/* Add this to your main.css file to indent the text in experience-detail */
+
+.experience-detail p,
+.experience-detail h4,
+.experience-detail ul {
+    padding-left: 40px;
+}
+.experience-meta {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin-bottom: 1.5rem;
+}
+
+.experience-banner {
+    width: 100%;
+    height: 400px; /* Adjust height as needed for banner effect */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 100px; /* Optional: adds rounded corners for a polished look */
+}
+
+/* Projects - Extra wide for two-column layout */
+		.project-gif {
+					max-width: 65%;
+					height: auto;
+					display: block;
+					margin: 1.5rem auto;
+					border-radius: 6px;
+				}
+		.project-figure {
+    text-align: center;
+    margin: 2rem auto 3rem auto;
+}
+
+.project-figure figcaption {
+    margin-top: 0.4rem;        /* pulls caption closer */
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.911);
+    font-style: italic;
+}
+		#main article#projects {
+			width: 120rem;
+			max-width: 95%;
+		}
+
+		/* Tools and Utilities - Standard width */
+		#main article#skills {
+			width: 40rem;
+			max-width: 90%;
+		}
+
+		/* Summary - Narrower */
+		#main article#summary {
+			width: 50rem;
+			max-width: 85%;
+		}
+
+		/* Contact - Medium width */
+		#main article#education {
+			width: 59rem;
+			max-width: 90%;
 		}
 
 			#main article.active {
@@ -1698,30 +1855,192 @@ input, select, textarea {
 					background-color: rgba(255, 255, 255, 0.175);
 				}
 
-		@media screen and (max-width: 736px) {
+		/* Responsive breakpoints */
+@media screen and (max-width: 1200px) {
+    #main article#projects {
+        width: 90rem;
+        max-width: 90%;
+    }
 
-			#main article {
-				padding: 3.5rem 2rem 0.5rem 2rem ;
-			}
+    #main article#skills {
+        width: 70rem;
+    }
 
-				#main article .close:before {
-					top: 0.875rem;
-					left: 0.875rem;
-					width: 2.25rem;
-					height: 2.25rem;
-					background-size: 14px 14px;
-				}
+    #main article#education {
+        width: 65rem;
+    }
 
+    #main article#education {
+        width: 50rem;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    #main article {
+        padding: 3.5rem 2rem 0.5rem 2rem;
+    }
+
+    #main article#projects,
+    #main article#skills,
+    #main article#education,
+    #main article#contact {
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #main article {
+        padding: 3rem 1.5rem 0.5rem 1.5rem;
+    }
 		}
+/* Projects Two-Column Layout */
+.projects-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 20px;
+}
 
-		@media screen and (max-width: 480px) {
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: none;
+    overflow-y: auto;
+    overflow-x: visible;
+    padding-right: 15px;
+    border-right: 2px solid #ffffff;
+    min-width: 300px;
+}
 
-			#main article {
-				padding: 3rem 1.5rem 0.5rem 1.5rem ;
-			}
+.project-item {
+    padding: 15px;
+    padding-left: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgba(247, 241, 241, 0.05);
+    transition: all 0.3s ease;
+    white-space: normal;
+    overflow: visible;
+    word-wrap: break-word;
+    position: relative;
+    border-left: 10px solid transparent;
+}
+.project-tag {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+    margin-top: 0.35rem;
+    color: #ffffff;
+    font-weight: 300;
+    text-transform: uppercase;
+}
 
-		}
+.project-item:hover .project-tag {
+    opacity: 0.8;
+    color: #ffffff;
+}
 
+.project-item.active .project-tag {
+    opacity: 1;
+    color: #ffffff;
+}
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.116);
+    border-color: #3A7AFE;
+    transform: translateX(5px);
+    border-left-color: #3A7AFE;
+    box-shadow: 0 0 15px rgba(55, 108, 255, 0.3), -4px 0 0 rgba(84, 133, 255, 0.2);
+}
+
+.project-item.active {
+    background: rgba(62, 104, 255, 0.1);
+    border-color: #3A7AFE;
+    font-weight: bold;
+    border-left-color: #3A7AFE;
+    border-left-width: 4px;
+}
+
+.project-item h4 {
+    margin: 0;
+    font-size: 0.95em;
+    color: #ffffff;
+    white-space: normal;
+    overflow: visible;
+    word-wrap: break-word;
+    text-transform: none;
+}
+.projects-detail {
+    position: relative;
+    min-height: 600px;
+}
+
+.project-detail {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    position: absolute;
+    width: 100%;
+}
+
+.project-detail.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+}
+
+.project-detail h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+.project-detail h4 {
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+.project-detail ul {
+    margin: 10px 0;
+    color: #cccccc;
+}
+
+.project-detail ul li {
+    margin-bottom: 8px;
+}
+
+/* Responsive - Stack vertically on mobile */
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .projects-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-height: none;
+        border-right: none;
+        border-bottom: 2px solid #c00000;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .project-item {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .projects-detail {
+        min-height: auto;
+    }
+}
 /* Footer */
 
 	#footer {
