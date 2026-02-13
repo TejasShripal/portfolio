@@ -1663,53 +1663,30 @@ input, select, textarea {
     color: #8dd3ff;
 }
 
-/* Add this to your main.css file */
+/* Replace the poetry styles in main.css with these */
 
 .poetry-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
 }
 
-.poetry-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border: 2px solid rgba(255, 255, 255, 0.2);
+.poetry-video-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
     border-radius: 12px;
-    padding: 30px;
-    max-width: 500px;
-    text-align: center;
-    backdrop-filter: blur(10px);
+    overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.poetry-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-}
-
-.poetry-portrait {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+.poetry-video-wrapper video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
 }
-
-.poetry-content p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    color: #ffffff;
-    font-style: italic;
-    margin: 0;
-}
-
-#poetry-audio {
-    display: none; /* Hide audio controls */
-}
-
 /* Main */
 
 	#main {
