@@ -573,18 +573,6 @@ mechanisms and characterize their dependence on flow and geometric parameters.
     </div>
 </article>
 
-<!-- Replace the poetry article section with this -->
-<article id="poetry">
-    <h2 class="major">Poetry</h2>
-    <div class="poetry-container">
-        <div class="poetry-video-wrapper">
-            <video width="100%" height="auto" controls autoplay loop muted>
-                <source src="./choices.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</article>
 
 						<!-- Elements -->
 							<article id="elements">
@@ -895,6 +883,53 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+});
+</script>
+<!-- Add this script just before </body> (after your other scripts) -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const link = document.getElementById('poetry-link');
+  if (!link) return;
+  link.addEventListener('click', async function (e) {
+    e.preventDefault();
+    const videoPath = './choices.mp4'; // adjust if different
+    try {
+      const resp = await fetch(videoPath);
+      if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
+      const blob = await resp.blob();
+      const objectUrl = URL.createObjectURL(blob);
+
+      // Open video in new tab at full resolution
+      const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{height:100%;margin:0;background:#000}video{width:100%;height:100%;object-fit:contain;background:#000}</style>
+<title>Poetry Video</title></head><body>
+<video controls autoplay><source src="${objectUrl}" type="${blob.type}">Your browser does not support the video tag.</video>
+</body></html>`;
+      const newWin = window.open('', '_blank');
+      if (!newWin) {
+        // fallback: navigate to object URL
+        window.location.href = objectUrl;
+      } else {
+        newWin.document.open();
+        newWin.document.write(html);
+        newWin.document.close();
+      }
+
+      // Trigger download of the same file
+      const a = document.createElement('a');
+      a.href = objectUrl;
+      a.download = videoPath.split('/').pop() || 'video.mp4';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      // Revoke after a minute
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
+    } catch (err) {
+      console.error(err);
+      alert('Unable to open video: ' + err.message);
+    }
+  });
 });
 </script>
 	</body>
