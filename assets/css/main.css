@@ -1663,30 +1663,7 @@ input, select, textarea {
     color: #8dd3ff;
 }
 
-/* Replace the poetry styles in main.css with these */
 
-.poetry-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-}
-
-.poetry-video-wrapper {
-    width: 100%;
-    max-width: 1000px;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.poetry-video-wrapper video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 /* Main */
 
 	#main {

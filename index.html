@@ -36,11 +36,6 @@
 								<li><a href="#projects"><b>Projects</b></a></li>
 								<li><a href="#experience"><b>Experience</b></a></li>
 								<li><a href="#contact"><b>Contact</b></a></li>
-								<!-- Add this to the navigation in the header -->
-								<!-- ...existing code... -->
-<li><a href="#poetry" id="poetry-link"><b>Poetry</b></a></li>
-<!-- ...existing code... -->
-								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -885,53 +880,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-});
-</script>
-<!-- Add this script just before </body> (after your other scripts) -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const link = document.getElementById('poetry-link');
-  if (!link) return;
-  link.addEventListener('click', async function (e) {
-    e.preventDefault();
-    const videoPath = './choices.mp4'; // adjust if different
-    try {
-      const resp = await fetch(videoPath);
-      if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
-      const blob = await resp.blob();
-      const objectUrl = URL.createObjectURL(blob);
-
-      // Open video in new tab at full resolution
-      const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">
-<style>html,body{height:100%;margin:0;background:#000}video{width:100%;height:100%;object-fit:contain;background:#000}</style>
-<title>Poetry Video</title></head><body>
-<video controls autoplay><source src="${objectUrl}" type="${blob.type}">Your browser does not support the video tag.</video>
-</body></html>`;
-      const newWin = window.open('', '_blank');
-      if (!newWin) {
-        // fallback: navigate to object URL
-        window.location.href = objectUrl;
-      } else {
-        newWin.document.open();
-        newWin.document.write(html);
-        newWin.document.close();
-      }
-
-      // Trigger download of the same file
-      const a = document.createElement('a');
-      a.href = objectUrl;
-      a.download = videoPath.split('/').pop() || 'video.mp4';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-
-      // Revoke after a minute
-      setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
-    } catch (err) {
-      console.error(err);
-      alert('Unable to open video: ' + err.message);
-    }
-  });
 });
 </script>
 	</body>
